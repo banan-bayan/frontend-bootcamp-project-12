@@ -48,7 +48,7 @@ const FormSignUp = () => {
             onChange={formik.handleChange}
             value={formik.values.passwordConfirm}
           />
-          {formik.errors.passwordConfirm && formik.touched.passwordConfirm ? <Form.Text className="text-danger">{formik.errors.passwordComfirm}</Form.Text> : null}
+          {formik.errors.passwordConfirm && formik.touched.passwordConfirm ? <Form.Text className="text-danger">{formik.errors.passwordConfirm}</Form.Text> : null}
         </Form.Group>
       
         <Button type='submit'  variant='outline-primary'>Зарегистрироваться</Button>
