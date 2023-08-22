@@ -2,6 +2,8 @@ import { signUpSchema } from '../../utils/validate.js';
 import { useFormik } from 'formik';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import axios from 'axios';
+import routes from '../../roures/routes.js';
 
 const FormSignUp = () => {
   const formik = useFormik({
@@ -10,8 +12,14 @@ const FormSignUp = () => {
       password: '',
       passwordConfirm: ''
     },
-    onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+    onSubmit: async (values) => {
+      try {
+        const { username, password } = values;
+        const response = await axios.post(routes.signUp(), { username, password });
+        console.log(response);
+      } catch {
+        console.log('ERROR');
+      }
     },
     validationSchema: signUpSchema
   });
@@ -21,37 +29,63 @@ const FormSignUp = () => {
         <Form.Group className="mb-3" controlId="formBasicUserName">
           <Form.Control 
             type="userName"
+            name="userName"
             placeholder="Имя пользователя"
-            id="userName"
             onChange={formik.handleChange}
             value={formik.values.userName}
           />
-          {formik.errors.userName && formik.touched.userName ? <Form.Text className="text-danger">{formik.errors.userName}</Form.Text> : null}
+          {formik.errors.userName && formik.touched.userName
+            ?
+            <Form.Text className="text-danger">
+              {formik.errors.userName}
+            </Form.Text>
+            :
+            null
+          }
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Control
             type="password"
+            name="password"
             placeholder="Пароль"
-            id="password"
             onChange={formik.handleChange}
             value={formik.values.password}
           />
-          {formik.errors.password && formik.touched.password ? <Form.Text className="text-danger">{formik.errors.password}</Form.Text> : null}
+          {formik.errors.password && formik.touched.password
+            ?
+            <Form.Text className="text-danger">
+              {formik.errors.password}
+            </Form.Text>
+            :
+            null
+          }
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPasswordComfirm">
           <Form.Control
             type="passwordConfirm"
+            name="passwordConfirm"
             placeholder="Подтвердите пароль"
-            id="passwordConfirm"
             onChange={formik.handleChange}
             value={formik.values.passwordConfirm}
           />
-          {formik.errors.passwordConfirm && formik.touched.passwordConfirm ? <Form.Text className="text-danger">{formik.errors.passwordConfirm}</Form.Text> : null}
+          {formik.errors.passwordConfirm && formik.touched.passwordConfirm
+            ?
+            <Form.Text className="text-danger">
+              {formik.errors.passwordConfirm}
+            </Form.Text>
+            :
+            null
+          }
         </Form.Group>
       
-        <Button type='submit'  variant='outline-primary'>Зарегистрироваться</Button>
+        <Button 
+          type='submit'
+          variant='outline-primary'
+        >
+          Зарегистрироваться
+        </Button>
       </Form> 
     </>
   )
