@@ -1,5 +1,7 @@
 import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/esm/Button';
+// import Button from 'react-bootstrap/esm/Button';
+import { AuthButton } from '../providers/AuthProvider';
+import { Children } from 'react';
 
 const Header = () => {
   
@@ -8,8 +10,7 @@ const Header = () => {
        <Nav.Item>
           <Nav.Link href="/">Hexlet Chat</Nav.Link>
         </Nav.Item>
-     
-        <Button variant='primary'>Выйти</Button>
+        <AuthButton variant='primary'>{Children}</AuthButton>
     </div>
   )
 }

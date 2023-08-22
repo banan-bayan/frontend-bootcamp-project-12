@@ -4,8 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import routes from '../../roures/routes.js';
+import { useNavigate } from 'react-router-dom';
+import useAuth from '../hooks/UseAuth.jsx';
 
 const FormSignUp = () => {
+  const navigate = useNavigate();
+  const auth = useAuth();
   const formik = useFormik({
     initialValues: {
       userName: '',
@@ -16,7 +20,9 @@ const FormSignUp = () => {
       try {
         const { username, password } = values;
         const response = await axios.post(routes.signUp(), { username, password });
-        console.log(response);
+        auth.setToken(response.data);
+        auth.logIn();
+        navigate(routes.mainPage(), { replace: true });
       } catch {
         console.log('ERROR');
       }

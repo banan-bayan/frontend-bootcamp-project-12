@@ -1,5 +1,5 @@
 const routes = {
-  signUp: () => '',
+  signUp: () => 'api/signup',
   pageNotFound: () => '*',
   pageMain: () => '/',
   pageLogin: () => '/login',
