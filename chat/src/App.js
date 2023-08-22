@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={routes.pageNotFound()} element={<PageNotFound />} />
-          <Route path={routes.pageMain()} element={<PrivateRoute><PageMain /></PrivateRoute>} />
+          <Route path={routes.pageMain()} element={(<PrivateRoute><PageMain /></PrivateRoute>)} />
           <Route path={routes.pageLogin()} element={<PageLogin />} />
           <Route path={routes.pageSignUp()} element={<PageSignUp />} />
         </Routes>

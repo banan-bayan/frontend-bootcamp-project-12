@@ -1,8 +1,9 @@
 import React from 'react';
-import Header from '../header/Header';
+import Header from '../header/Header.jsx';
+
 const PageMain = () => (
   <>
-    <h3 style={{background: 'teal'}}>MAIN</h3>
+    <h3 style={{ background: 'teal' }}>MAIN</h3>
     <Header />
   </>
 );

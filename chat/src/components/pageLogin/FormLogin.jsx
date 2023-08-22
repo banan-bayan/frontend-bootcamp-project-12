@@ -1,27 +1,29 @@
-import { loginSchema } from '../../utils/validate.js';
+import React from 'react';
 import { useFormik } from 'formik';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { loginSchema } from '../../utils/validate.js';
 // import axios from 'axios';
 
 const FormLogin = () => {
   const formik = useFormik({
     initialValues: {
       userName: '',
-      password: ''
+      password: '',
     },
-    onSubmit:  (values) => {
+    onSubmit: (values) => {
       // const response = await axios.post()
       // console.log(response)
+      console.log(values);
     },
-    validationSchema: loginSchema
+    validationSchema: loginSchema,
   });
 
   return (
     <>
       <Form onSubmit={formik.handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicUserName">
-          <Form.Control 
+          <Form.Control
             type="userName"
             name="userName"
             placeholder="Ваш ник"
@@ -29,12 +31,10 @@ const FormLogin = () => {
             value={formik.values.userName}
           />
           {formik.errors.userName && formik.touched.userName
-            ?
-            <Form.Text className="text-danger">
-              {formik.errors.userName}
-            </Form.Text>
-            :
-            null
+            ? <Form.Text className="text-danger">
+                {formik.errors.userName}
+              </Form.Text>
+            : null
           }
         </Form.Group>
 
@@ -47,18 +47,16 @@ const FormLogin = () => {
             value={formik.values.password}
           />
           {formik.errors.password && formik.touched.password
-            ?
-            <Form.Text className="text-danger">
-              {formik.errors.password}
-            </Form.Text>
-            :
-            null
+            ? <Form.Text className="text-danger">
+                {formik.errors.password}
+              </Form.Text>
+            : null
           }
         </Form.Group>
-        <Button type='submit'  variant='outline-primary'>Войти</Button>
-      </Form> 
+        <Button type='submit' variant='outline-primary'>Войти</Button>
+      </Form>
     </>
-  )
+  );
 };
 
 export default FormLogin;

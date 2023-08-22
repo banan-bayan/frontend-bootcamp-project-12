@@ -1,12 +1,12 @@
 import React from 'react';
-import { signUpSchema } from '../../utils/validate.js';
+import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import routes from '../../roures/routes.js';
-import { useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/UseAuth.jsx';
+import { signUpSchema } from '../../utils/validate.js';
 
 const FormSignUp = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const FormSignUp = () => {
     initialValues: {
       userName: '',
       password: '',
-      passwordConfirm: ''
+      passwordConfirm: '',
     },
     onSubmit: async (values) => {
       try {
@@ -28,13 +28,13 @@ const FormSignUp = () => {
         console.log('ERROR');
       }
     },
-    validationSchema: signUpSchema
+    validationSchema: signUpSchema,
   });
   return (
     <>
       <Form onSubmit={formik.handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicUserName">
-          <Form.Control 
+          <Form.Control
             type="userName"
             name="userName"
             placeholder="Имя пользователя"
@@ -42,12 +42,10 @@ const FormSignUp = () => {
             value={formik.values.userName}
           />
           {formik.errors.userName && formik.touched.userName
-            ?
-            <Form.Text className="text-danger">
-              {formik.errors.userName}
-            </Form.Text>
-            :
-            null
+            ? <Form.Text className="text-danger">
+                {formik.errors.userName}
+              </Form.Text>
+            : null
           }
         </Form.Group>
 
@@ -60,12 +58,10 @@ const FormSignUp = () => {
             value={formik.values.password}
           />
           {formik.errors.password && formik.touched.password
-            ?
-            <Form.Text className="text-danger">
-              {formik.errors.password}
-            </Form.Text>
-            :
-            null
+            ? <Form.Text className="text-danger">
+                {formik.errors.password}
+              </Form.Text>
+            : null
           }
         </Form.Group>
 
@@ -78,24 +74,22 @@ const FormSignUp = () => {
             value={formik.values.passwordConfirm}
           />
           {formik.errors.passwordConfirm && formik.touched.passwordConfirm
-            ?
-            <Form.Text className="text-danger">
-              {formik.errors.passwordConfirm}
-            </Form.Text>
-            :
-            null
+            ? <Form.Text className="text-danger">
+                {formik.errors.passwordConfirm}
+              </Form.Text>
+            : null
           }
         </Form.Group>
-      
-        <Button 
+
+        <Button
           type='submit'
           variant='outline-primary'
         >
           Зарегистрироваться
         </Button>
-      </Form> 
+      </Form>
     </>
-  )
-}
+  );
+};
 
 export default FormSignUp;

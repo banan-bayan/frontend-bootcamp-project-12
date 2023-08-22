@@ -1,9 +1,9 @@
+import React from 'react';
 import FormLogin from './FormLogin.jsx';
 import Header from '../header/Header.jsx';
 import Footer from '../footer/Footer.jsx';
 
-const PageLogin = () => {
-  return (
+const PageLogin = () => (
   <>
     <Header />
     <img alt="foo" src="./images.jpg" />
@@ -11,6 +11,6 @@ const PageLogin = () => {
     <FormLogin />
     <Footer />
   </>
-  )
-}
-export default PageLogin
+);
+
+export default PageLogin;
