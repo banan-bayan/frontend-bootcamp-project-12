@@ -10,7 +10,7 @@ export const loginSchema = yup.object().shape({
     .trim()
     .required('Обязательное поле')
     .min(5, 'Минимум 5 символов')
-    .max(20, 'Максимум 20 символов')
+    .max(20, 'Максимум 20 символов'),
 });
 
 export const signUpSchema = yup.object().shape({

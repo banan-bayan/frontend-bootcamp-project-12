@@ -1,3 +1,4 @@
+import React from 'react';
 import { signUpSchema } from '../../utils/validate.js';
 import { useFormik } from 'formik';
 import Button from 'react-bootstrap/Button';
@@ -97,4 +98,4 @@ const FormSignUp = () => {
   )
 }
 
-export default FormSignUp
+export default FormSignUp;

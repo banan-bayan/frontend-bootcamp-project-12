@@ -1,4 +1,3 @@
-
 /* <body className="h-100 bg-light">
 <div className="h-100">
   <div className="h-100" id="chat">
@@ -18,5 +17,5 @@
     <div className="toastify"></div>
   </div>
 </div>
-</body> 
+</body>
 */
