@@ -1,5 +1,9 @@
+const apiPath = '/api/v1';
+
 const routes = {
-  signUp: () => 'api/signup',
+  // login: () => [apiPath, 'login'].join('/'),
+  // usersPath: () => [apiPath, 'data'].join('/'),
+  signUp: () => [apiPath, 'signup'].join('/'),
   pageNotFound: () => '*',
   pageMain: () => '/',
   pageLogin: () => '/login',
