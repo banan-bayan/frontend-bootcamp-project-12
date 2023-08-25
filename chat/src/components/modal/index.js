@@ -1,9 +1,9 @@
-import Add from './Add.jsx';
+import AddModal from './AddModal.jsx';
 import Remove from './Remove.jsx';
 import Rename from './Rename.jsx';
 
 const mappingModals = {
-  add: Add,
+  add: AddModal,
   remove: Remove,
   rename: Rename,
 };

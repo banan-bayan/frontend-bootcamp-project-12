@@ -1,5 +1,16 @@
 import * as yup from 'yup';
 
+export const modalScheme = yup.object().shape({
+  modalsScheme: (Yup, t, channels) => (
+    Yup.object().shape({
+      channelName: Yup
+        .string()
+        .notOneOf(channels, 'Канал с таким именем уже существует')
+        .min(3, t('modals.errors'))
+        .max(20, t('modals.errors')),
+    })
+  ),
+});
 export const loginSchema = yup.object().shape({
   userName: yup.string()
     .trim()

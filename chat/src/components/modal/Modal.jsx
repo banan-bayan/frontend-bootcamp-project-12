@@ -7,12 +7,10 @@ const ModalComponent = () => {
   const isShown = useSelector((state) => state.modal.isShown);
   const modalType = useSelector((state) => state.modal.type);
   const modalId = useSelector((state) => state.modal.id);
-  if (!isShown) {
-    return null;
-  }
+  if (!isShown) return null;
   const closeModal = () => dispatch(modalActions.closeModal());
   const Component = getModal(modalType);
-  return <Component show={isShown} closeModal={closeModal} id={modalId} />;
+  return <Component show={isShown} closeModal={closeModal} id={modalId}/>;
 };
 
 export default ModalComponent;

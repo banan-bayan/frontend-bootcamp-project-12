@@ -5,11 +5,11 @@ import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 import { Modal, Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import useSocket from '../../../hooks/SocketHook';
+import useSocket from '../hooks/socetHook.jsx';
 import 'react-toastify/dist/ReactToastify.css';
-import toastConfig from '../../../toastConfig';
-import getScheme from '../../../validationSchemes';
-import { selectors as channelsSelectors, actions as channelsActions } from '../../../slices/channelsSlice';
+import toastConfig from '../toastCfg.js';
+import { modalScheme } from '../../utils/validate.js';
+import { selectors as channelsSelectors, actions as channelsActions } from '../../slices/channelsSlice.jsx';
 
 const AddModal = (props) => {
   const { closeModal, show } = props;
@@ -32,7 +32,7 @@ const AddModal = (props) => {
     initialValues: {
       channelName: '',
     },
-    validationSchema: getScheme.modalsScheme(Yup, t, channelsNames),
+    validationSchema: modalScheme(Yup, t, channelsNames),
     onSubmit: (values) => {
       try {
         if (values.channelName.length === 0) {
