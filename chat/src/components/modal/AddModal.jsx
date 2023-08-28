@@ -5,11 +5,11 @@ import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 import { Modal, Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import useSocket from '../hooks/UseSocket.jsx';
+import useSocket from '../../hooks/UseSocket.jsx';
 import 'react-toastify/dist/ReactToastify.css';
-import toastConfig from '../toastCfg.js';
-import { modalScheme } from '../../utils/validate.js';
-import { selectors as channelsSelectors, actions as channelsActions } from '../../slices/ChannelsSlice.jsx';
+import toastConfig from '../../toastCfg.js';
+import { modalScheme } from '../../utils/myvalidate.js';
+import { selectors as channelsSelectors, actions as channelsActions } from '../../slices/ChannelsSlice.js';
 
 const AddModal = (props) => {
   const { closeModal, show } = props;

@@ -3,7 +3,7 @@ import { useLocation, Navigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import useAuth from '../hooks/UseAuth.jsx';
 import AuthContext from '../contexts/context.jsx';
-import routes from '../../roures/routes.js';
+import routes from '../roures/routes.js';
 
 export const AuthProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);

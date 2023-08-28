@@ -5,11 +5,11 @@ import * as Yup from 'yup';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
-import { selectors, selectors as channelsSelectors } from '../../../slices/channelsSlice';
+import { selectors, selectors as channelsSelectors } from '../../slices/ChannelsSlice.js';
 import 'react-toastify/dist/ReactToastify.css';
-import toastConfig from '../../../toastConfig';
-import getScheme from '../../../validationSchemes';
-import useSocket from '../../../hooks/SocketHook';
+import toastConfig from '../../toastCfg.js';
+import getScheme from '../../utils/validate.js';
+import useSocket from '../../hooks/UseSocket.jsx';
 
 const RenameModal = ({ show, closeModal, id }) => {
   const inputField = useRef();

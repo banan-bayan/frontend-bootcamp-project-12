@@ -3,10 +3,10 @@ import { Modal, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
-import { actions as channelsActions } from '../../slices/ChannelsSlice.jsx';
+import { actions as channelsActions } from '../../slices/ChannelsSlice.js';
 import 'react-toastify/dist/ReactToastify.css';
-import toastConfig from '../toastCfg.js';
-import useSocket from '../hooks/UseSocket.jsx';
+import toastConfig from '../../toastCfg.js';
+import useSocket from '../../hooks/UseSocket.jsx';
 
 const RemoveModal = (props) => {
   const { closeModal, id } = props;
