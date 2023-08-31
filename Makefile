@@ -1,4 +1,4 @@
-lint-chat:
+lint-frontend:
 	make -C chat lint
 
 install:
