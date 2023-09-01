@@ -4,7 +4,7 @@
 ### Установка проекта:
 
 ```
-$ git clone https://github.com/justsega/frontend-bootcamp-project-12.git
+$ git clone https://github.com/banan-bayan/frontend-bootcamp-project-12
 $ cd frontend-bootcamp-project-12
 $ npm ci
 ```
